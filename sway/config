@@ -25,10 +25,9 @@ set $term alacritty
 set $editor neovide
 
 # Custom application launcher
-set $launcher alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
-
+set $launcher rofi -show drun
 # Browser
-set $browser qutebrowser
+set $browser firefox
 
 # Lock screen
 set $lock swaylock --color 000000 --ignore-empty-password --show-failed-attempts
@@ -112,7 +111,7 @@ exec mako
 # -----------------------------------------------------------------------------
 
 # Session management
-bindsym $mod+Shift+q kill
+bindsym $mod+q kill
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
@@ -200,8 +199,8 @@ bindsym $mod+r mode "resize"
 # User-defined (see variables section at the top)
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $editor
-bindsym $mod+d exec $launcher
-bindsym $mod+x exec $browser
+bindsym $mod+r exec $launcher
+bindsym $mod+b exec $browser
 bindsym $mod+Escape exec $lock
 bindsym Print exec $screenshot
 bindsym $mod+Print exec $screenshot_region
